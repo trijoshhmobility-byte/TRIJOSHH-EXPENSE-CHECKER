@@ -8,6 +8,7 @@ import CategoryChart from './components/CategoryChart';
 import { PlusIcon } from './components/icons/PlusIcon';
 import { ExportIcon } from './components/icons/ExportIcon';
 import AuthModal from './components/AuthModal';
+import GeminiDebug from './components/GeminiDebug';
 import { authService } from './services/authService';
 import { TrijoshhLogo } from './components/icons/TrijoshhLogo';
 
@@ -17,6 +18,7 @@ const App: React.FC = () => {
 
   const [isExpenseModalOpen, setIsExpenseModalOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isGeminiDebugOpen, setIsGeminiDebugOpen] = useState(false);
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
 
   const [editingExpense, setEditingExpense] = useState<Expense | null>(null);
@@ -189,6 +191,17 @@ const App: React.FC = () => {
                     <ExportIcon className="w-5 h-5" />
                     <span>Export CSV</span>
                   </button>
+                  {process.env.NODE_ENV === 'development' && (
+                    <button
+                      onClick={() => setIsGeminiDebugOpen(true)}
+                      className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 shadow-md"
+                      aria-label="Open Gemini API Debug Console"
+                      title="Debug Gemini AI Integration"
+                    >
+                      🧪
+                      <span>Debug AI</span>
+                    </button>
+                  )}
                   <button
                     onClick={handleOpenExpenseModal}
                     className="flex items-center gap-2 bg-brand-primary hover:bg-brand-secondary text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 shadow-md"
@@ -268,6 +281,13 @@ const App: React.FC = () => {
           onClose={() => setIsAuthModalOpen(false)}
           onAuthSuccess={handleAuthSuccess}
           initialMode={authMode}
+        />
+      )}
+      
+      {isGeminiDebugOpen && (
+        <GeminiDebug 
+          isVisible={isGeminiDebugOpen}
+          onClose={() => setIsGeminiDebugOpen(false)}
         />
       )}
     </div>
