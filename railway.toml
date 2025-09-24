@@ -1,0 +1,18 @@
+version: 3
+variables:
+  GEMINI_API_KEY:
+    description: Google Gemini AI API Key for smart expense categorization
+    default: ""
+
+build:
+  builder: nodejs
+  buildCommand: npm run build
+  outputDirectory: dist
+
+start:
+  command: npm start
+
+healthcheck:
+  path: /
+  timeout: 30s
+  interval: 30s
