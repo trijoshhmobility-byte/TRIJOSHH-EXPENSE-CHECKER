@@ -7,6 +7,10 @@ export enum ExpenseCategory {
   Salary = 'Salary',
   Stationary = 'Stationary',
   OfficeEquipment = 'Office Equipment',
+  Food = 'Food',
+  Travel = 'Travel',
+  Labour = 'Labour',
+  Rent = 'Rent',
   Other = 'Other',
 }
 

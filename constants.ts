@@ -8,6 +8,10 @@ import { SparePartsIcon } from './components/icons/SparePartsIcon';
 import { SalaryIcon } from './components/icons/SalaryIcon';
 import { StationaryIcon } from './components/icons/StationaryIcon';
 import { OfficeEquipmentIcon } from './components/icons/OfficeEquipmentIcon';
+import { FoodIcon } from './components/icons/FoodIcon';
+import { TransportIcon } from './components/icons/TransportIcon';
+import { LabourIcon } from './components/icons/LabourIcon';
+import { RentIcon } from './components/icons/RentIcon';
 
 export const CATEGORIES: ExpenseCategory[] = [
   ExpenseCategory.Material,
@@ -17,6 +21,10 @@ export const CATEGORIES: ExpenseCategory[] = [
   ExpenseCategory.Salary,
   ExpenseCategory.Stationary,
   ExpenseCategory.OfficeEquipment,
+  ExpenseCategory.Food,
+  ExpenseCategory.Travel,
+  ExpenseCategory.Labour,
+  ExpenseCategory.Rent,
   ExpenseCategory.Other,
 ];
 
@@ -28,6 +36,10 @@ export const CATEGORY_COLORS: Record<ExpenseCategory, string> = {
   [ExpenseCategory.Salary]: '#ec4899', // Pink 500
   [ExpenseCategory.Stationary]: '#f59e0b', // Amber 500
   [ExpenseCategory.OfficeEquipment]: '#8b5cf6', // Violet 500
+  [ExpenseCategory.Food]: '#ef4444', // Red 500
+  [ExpenseCategory.Travel]: '#06b6d4', // Cyan 500
+  [ExpenseCategory.Labour]: '#84cc16', // Lime 500
+  [ExpenseCategory.Rent]: '#14b8a6', // Teal 500
   [ExpenseCategory.Other]: '#6b7280', // Gray 500
 };
 
@@ -41,5 +53,9 @@ export const CATEGORY_ICONS: Record<ExpenseCategory, React.ComponentType<React.S
   [ExpenseCategory.Salary]: SalaryIcon,
   [ExpenseCategory.Stationary]: StationaryIcon,
   [ExpenseCategory.OfficeEquipment]: OfficeEquipmentIcon,
+  [ExpenseCategory.Food]: FoodIcon,
+  [ExpenseCategory.Travel]: TransportIcon,
+  [ExpenseCategory.Labour]: LabourIcon,
+  [ExpenseCategory.Rent]: RentIcon,
   [ExpenseCategory.Other]: OtherIcon,
 };
